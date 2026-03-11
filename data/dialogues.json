@@ -1,0 +1,112 @@
+{
+  "Shopkeeper": [
+    {
+      "id": "shopkeeper_1",
+      "opening": "Afternoon. What can I get you?",
+      "responses": [
+        {"text": "Just browsing, thanks.", "meter_delta": 0, "outcome": "none", "outcome_payload": ""},
+        {"text": "Seen the news today? Mental isn't it.", "meter_delta": 5, "outcome": "notify", "outcome_payload": "You should talk to Dave at the Crown. He knows things."},
+        {"text": "How's business since the new regulations?", "meter_delta": 10, "outcome": "notify", "outcome_payload": "Please don't ask me that in here."}
+      ]
+    }
+  ],
+  "Pensioner": [
+    {
+      "id": "pensioner_1",
+      "opening": "Not like it used to be round here.",
+      "responses": [
+        {"text": "Everything changes, I suppose.", "meter_delta": 0, "outcome": "none", "outcome_payload": ""},
+        {"text": "What's changed the most?", "meter_delta": 3, "outcome": "notify", "outcome_payload": "The cameras. There used to be two on this street. Count them now."},
+        {"text": "You can't say that any more, can you?", "meter_delta": 12, "outcome": "notify", "outcome_payload": "Conversation flagged."}
+      ]
+    }
+  ],
+  "Student": [
+    {
+      "id": "student_1",
+      "opening": "Do you know where the Community Values Centre is?",
+      "responses": [
+        {"text": "Down the road on the left.", "meter_delta": 0, "outcome": "none", "outcome_payload": ""},
+        {"text": "What do you need that for?", "meter_delta": 5, "outcome": "notify", "outcome_payload": "Mandatory workshop. Third one this month."},
+        {"text": "Don't bother. It's a waste of time.", "meter_delta": 15, "outcome": "notify", "outcome_payload": "Advisory: discouraging civic participation is a Category 2 concern."}
+      ]
+    }
+  ],
+  "Office Worker": [
+    {
+      "id": "worker_1",
+      "opening": "If this is about parking fines, I don't work for that team.",
+      "responses": [
+        {"text": "No worries, wrong person.", "meter_delta": 0, "outcome": "none", "outcome_payload": ""},
+        {"text": "Who does review civility appeals?", "meter_delta": 6, "outcome": "notify", "outcome_payload": "Basement office. Door marked Records."},
+        {"text": "You know this whole thing is rigged, right?", "meter_delta": 14, "outcome": "notify", "outcome_payload": "Nearby phone cameras pivot toward you."}
+      ]
+    }
+  ],
+  "Bus Driver": [
+    {
+      "id": "bus_driver_1",
+      "opening": "Tap in, tap out, keep your head down.",
+      "responses": [
+        {"text": "Cheers.", "meter_delta": 0, "outcome": "none", "outcome_payload": ""},
+        {"text": "You ever get route audits?", "meter_delta": 4, "outcome": "notify", "outcome_payload": "Every shift. They call it wellbeing."},
+        {"text": "Do you disable cameras on night routes?", "meter_delta": 13, "outcome": "notify", "outcome_payload": "Driver shuts the door in your face."}
+      ]
+    }
+  ],
+  "Courier": [
+    {
+      "id": "courier_1",
+      "opening": "Package for flat 12B. Signature and civility PIN.",
+      "responses": [
+        {"text": "Wrong address.", "meter_delta": 0, "outcome": "none", "outcome_payload": ""},
+        {"text": "Who checks those PIN logs?", "meter_delta": 5, "outcome": "notify", "outcome_payload": "Council contractor. Warehouse south side."},
+        {"text": "Lose the parcel and tell them it was stolen.", "meter_delta": 11, "outcome": "notify", "outcome_payload": "Courier backs away and reports an incident."}
+      ]
+    }
+  ],
+  "Council Clerk": [
+    {
+      "id": "clerk_1",
+      "opening": "Applications, permits, confessions. Queue forms to the left.",
+      "responses": [
+        {"text": "Just collecting a form.", "meter_delta": 0, "outcome": "none", "outcome_payload": ""},
+        {"text": "Can forms be expedited?", "meter_delta": 4, "outcome": "notify", "outcome_payload": "Try me with two grand and no receipts."},
+        {"text": "Who blacklists people here?", "meter_delta": 12, "outcome": "notify", "outcome_payload": "Clerk notes your face and ends conversation."}
+      ]
+    }
+  ],
+  "Nurse": [
+    {
+      "id": "nurse_1",
+      "opening": "We triage by urgency and by policy now.",
+      "responses": [
+        {"text": "Take care.", "meter_delta": 0, "outcome": "none", "outcome_payload": ""},
+        {"text": "Policy changed again?", "meter_delta": 5, "outcome": "notify", "outcome_payload": "Weekly updates. Nobody can keep up."},
+        {"text": "Policy gets people hurt.", "meter_delta": 10, "outcome": "notify", "outcome_payload": "Nurse whispers: I didn't hear that."}
+      ]
+    }
+  ],
+  "Barfly": [
+    {
+      "id": "barfly_1",
+      "opening": "You here for football or trouble?",
+      "responses": [
+        {"text": "Football.", "meter_delta": 0, "outcome": "none", "outcome_payload": ""},
+        {"text": "Heard anything about depot security?", "meter_delta": 6, "outcome": "notify", "outcome_payload": "Back fence has a blind spot."},
+        {"text": "Know how to jam police comms?", "meter_delta": 15, "outcome": "notify", "outcome_payload": "Bar goes quiet. Someone leaves to make a call."}
+      ]
+    }
+  ],
+  "Journalist": [
+    {
+      "id": "journalist_1",
+      "opening": "Off the record doesn't exist any more.",
+      "responses": [
+        {"text": "Understood.", "meter_delta": 0, "outcome": "none", "outcome_payload": ""},
+        {"text": "Can you verify CHB-4471?", "meter_delta": 7, "outcome": "unlock_mission", "outcome_payload": "m7_archive"},
+        {"text": "Publish everything now.", "meter_delta": 16, "outcome": "notify", "outcome_payload": "Phone buzz: pre-emptive moderation warning issued."}
+      ]
+    }
+  ]
+}

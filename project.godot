@@ -1,0 +1,26 @@
+; Engine configuration file.
+config_version=5
+
+[application]
+config/name="Flagged"
+run/main_scene="res://scenes/title/title_screen.tscn"
+config/features=PackedStringArray("4.2")
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[autoload]
+InputSetup="*res://scripts/systems/input_setup.gd"
+GameState="*res://scripts/systems/game_state.gd"
+WantedSystem="*res://scripts/systems/wanted_system.gd"
+MissionSystem="*res://scripts/systems/mission_system.gd"
+DialogueSystem="*res://scripts/systems/dialogue_system.gd"
+SaveSystem="*res://scripts/systems/save_system.gd"
+AudioSystem="*res://scripts/systems/audio_system.gd"
+
+[rendering]
+renderer/rendering_method="mobile"
+textures/canvas_textures/default_texture_filter=0

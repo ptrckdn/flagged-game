@@ -1,0 +1,104 @@
+{
+  "m1_induction": {
+    "unlock_after": "",
+    "briefing": "You're new. Package at Park Road newsagent. Bring it back.",
+    "objectives": [
+      {"type": "go_to_location", "target_id": "newsagent", "text": "Go to the Park Road newsagent."},
+      {"type": "collect_item", "target_id": "package", "text": "Collect the package."},
+      {"type": "deliver_item", "target_id": "pub", "text": "Return to the pub and hand in."}
+    ],
+    "rewards": {"cash": 200, "meter": 5, "rep": 1},
+    "fail_conditions": {"caught": true, "timer": 0}
+  },
+  "m2_wheels": {
+    "unlock_after": "m1_induction",
+    "briefing": "Steal the marked car on Bridge Street. Deliver to Foundry Lane lockup.",
+    "objectives": [
+      {"type": "go_to_location", "target_id": "bridge_street_car", "text": "Reach the marked car."},
+      {"type": "interact_npc", "target_id": "steal_car", "text": "Hotwire and steal the car."},
+      {"type": "go_to_location", "target_id": "foundry_lockup", "text": "Drive to Foundry Lane lockup."}
+    ],
+    "rewards": {"cash": 500, "meter": 3, "rep": 1},
+    "fail_conditions": {"caught": true, "timer": 120}
+  },
+  "m3_leaflet_run": {
+    "unlock_after": "m2_wheels",
+    "briefing": "Deliver 5 leaflet batches before surveillance closes in.",
+    "objectives": [
+      {"type": "collect_item", "target_id": "leaflets", "text": "Collect leaflet batches."},
+      {"type": "deliver_item", "target_id": "drop_1", "text": "Drop batch 1."},
+      {"type": "deliver_item", "target_id": "drop_2", "text": "Drop batch 2."},
+      {"type": "deliver_item", "target_id": "drop_3", "text": "Drop batch 3."},
+      {"type": "deliver_item", "target_id": "drop_4", "text": "Drop batch 4."},
+      {"type": "deliver_item", "target_id": "drop_5", "text": "Drop batch 5."}
+    ],
+    "rewards": {"cash": 1000, "meter": 15, "rep": 2},
+    "fail_conditions": {"caught": true, "timer": 240}
+  },
+  "m4_daves_problem": {
+    "unlock_after": "m3_leaflet_run",
+    "briefing": "Pick up Dave and avoid checkpoints to the safehouse.",
+    "objectives": [
+      {"type": "go_to_location", "target_id": "dave_flat", "text": "Drive to Dave's flat."},
+      {"type": "interact_npc", "target_id": "pickup_dave", "text": "Pick up Dave."},
+      {"type": "escape_area", "target_id": "safehouse", "text": "Reach the safehouse via back roads."}
+    ],
+    "rewards": {"cash": 800, "meter": 8, "rep": 2},
+    "fail_conditions": {"caught": true, "timer": 240}
+  },
+  "m5_the_signal": {
+    "unlock_after": "m4_daves_problem",
+    "briefing": "Steal the power cell from depot, install at library transmitter, escape.",
+    "objectives": [
+      {"type": "go_to_location", "target_id": "depot", "text": "Drive to the government depot."},
+      {"type": "interact_npc", "target_id": "fence_gap", "text": "Enter through back fence."},
+      {"type": "collect_item", "target_id": "power_cell", "text": "Steal the power cell."},
+      {"type": "go_to_location", "target_id": "library", "text": "Get to the old library."},
+      {"type": "interact_npc", "target_id": "install_cell", "text": "Install power cell on roof."},
+      {"type": "escape_area", "target_id": "library_escape", "text": "Escape police response."},
+      {"type": "deliver_item", "target_id": "pub", "text": "Return to the pub."}
+    ],
+    "rewards": {"cash": 3000, "meter": 12, "rep": 4},
+    "fail_conditions": {"caught": true, "timer": 420}
+  },
+  "m6_market_research": {
+    "unlock_after": "m5_the_signal",
+    "briefing": "Survey high street cameras and interview three shopkeepers.",
+    "objectives": [
+      {"type": "go_to_location", "target_id": "high_street_start", "text": "Walk to the High Street."},
+      {"type": "interact_npc", "target_id": "shopkeeper_1", "text": "Talk to shopkeeper 1."},
+      {"type": "interact_npc", "target_id": "shopkeeper_2", "text": "Talk to shopkeeper 2."},
+      {"type": "interact_npc", "target_id": "shopkeeper_3", "text": "Talk to shopkeeper 3."},
+      {"type": "interact_npc", "target_id": "upload_phone", "text": "Upload surveillance report."}
+    ],
+    "rewards": {"cash": 1500, "meter": 10, "rep": 3},
+    "fail_conditions": {"caught": true, "timer": 300}
+  },
+  "m7_archive": {
+    "unlock_after": "m6_market_research",
+    "briefing": "Infiltrate council basement records and photograph CHB-4471.",
+    "objectives": [
+      {"type": "go_to_location", "target_id": "council_offices", "text": "Reach council offices."},
+      {"type": "interact_npc", "target_id": "enter_front", "text": "Enter with fake ID."},
+      {"type": "go_to_location", "target_id": "basement", "text": "Reach basement records."},
+      {"type": "interact_npc", "target_id": "search_files", "text": "Search cabinets for CHB-4471."},
+      {"type": "collect_item", "target_id": "archive_photo", "text": "Photograph the file."},
+      {"type": "escape_area", "target_id": "council_exit", "text": "Exit without being spotted."}
+    ],
+    "rewards": {"cash": 5000, "meter": 8, "rep": 5},
+    "fail_conditions": {"caught": true, "timer": 300}
+  },
+  "m8_broadcast_day": {
+    "unlock_after": "m7_archive",
+    "briefing": "Defend library transmitter for 90 seconds, then survive collapse and escape.",
+    "objectives": [
+      {"type": "go_to_location", "target_id": "library", "text": "Drive to the library."},
+      {"type": "interact_npc", "target_id": "start_broadcast", "text": "Activate broadcast."},
+      {"type": "survive_time", "target_id": "broadcast_timer", "params": {"seconds": 90}, "text": "Hold out for 90 seconds."},
+      {"type": "escape_area", "target_id": "library_collapse", "text": "Escape building within 30 seconds."},
+      {"type": "escape_area", "target_id": "safehouse", "text": "Escape to safehouse."}
+    ],
+    "rewards": {"cash": 8000, "meter": 30, "rep": 8},
+    "fail_conditions": {"caught": true, "timer": 600}
+  }
+}

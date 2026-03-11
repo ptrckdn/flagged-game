@@ -1,0 +1,38 @@
+{
+  "fake_id": {
+    "stackable": true,
+    "carry_slot_cost": 1,
+    "tags": ["utility"],
+    "effects": {"capture_severity_reduction": 1}
+  },
+  "burner_phone": {
+    "stackable": true,
+    "carry_slot_cost": 1,
+    "tags": ["utility"],
+    "effects": {"reveal_police_seconds": 300}
+  },
+  "leaflets": {
+    "stackable": true,
+    "carry_slot_cost": 1,
+    "tags": ["contraband"],
+    "effects": {"mission": "m3_leaflet_run"}
+  },
+  "underground_newspaper": {
+    "stackable": true,
+    "carry_slot_cost": 1,
+    "tags": ["contraband"],
+    "effects": {"meter_on_possession": 3}
+  },
+  "power_cell": {
+    "stackable": false,
+    "carry_slot_cost": 1,
+    "tags": ["mission"],
+    "effects": {"mission": "m5_the_signal"}
+  },
+  "package": {
+    "stackable": false,
+    "carry_slot_cost": 1,
+    "tags": ["mission"],
+    "effects": {"mission": "m1_induction"}
+  }
+}
