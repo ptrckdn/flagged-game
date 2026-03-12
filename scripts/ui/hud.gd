@@ -2,7 +2,7 @@ extends CanvasLayer
 class_name HUD
 
 var notifications: Array[String] = []
-var notif_timer := 0.0
+var notif_timer: float = 0.0
 
 @onready var civility_label: Label = $Top/CivilityLabel
 @onready var civility_bar: ColorRect = $Top/CivilityContainer/CivilityBar
@@ -11,17 +11,20 @@ var notif_timer := 0.0
 @onready var notification_label: Label = $Notification
 @onready var mission_label: Label = $Mission
 @onready var minimap: Control = $Minimap
+@onready var hotwire_bar: ProgressBar = $HotwireBar
 
-var full_bar_width := 320.0
+var full_bar_width: float = 320.0
 
 func _ready() -> void:
 	GameState.meter_changed.connect(_on_meter_changed)
 	GameState.cash_changed.connect(_on_cash_changed)
 	GameState.notification.connect(push_notification)
+	GameState.hotwire_progress.connect(_on_hotwire_progress)
 	MissionSystem.mission_updated.connect(_on_mission_updated)
 	_on_meter_changed(GameState.civility_index, GameState.get_tier())
 	_on_cash_changed(GameState.cash)
 	notification_label.text = ""
+	hotwire_bar.visible = false
 
 func _process(delta: float) -> void:
 	if notif_timer > 0.0:
@@ -34,7 +37,7 @@ func _process(delta: float) -> void:
 
 func _on_meter_changed(value: int, tier: String) -> void:
 	civility_label.text = "CIVILITY INDEX"
-	var ratio := clamp(float(value) / 100.0, 0.0, 1.0)
+	var ratio: float = clampf(float(value) / 100.0, 0.0, 1.0)
 	civility_bar.custom_minimum_size.x = full_bar_width * max(0.02, ratio)
 	civility_value.text = str(value)
 	match tier:
@@ -51,3 +54,7 @@ func push_notification(text: String) -> void:
 
 func _on_mission_updated(_id: String, _index: int, text: String) -> void:
 	mission_label.text = text
+
+func _on_hotwire_progress(active: bool, progress: float) -> void:
+	hotwire_bar.visible = active
+	hotwire_bar.value = progress * 100.0

@@ -15,14 +15,16 @@ func _ready() -> void:
 	_load_missions()
 
 func _load_missions() -> void:
-	var file := FileAccess.open("res://data/missions.json", FileAccess.READ)
+	var file: FileAccess = FileAccess.open("res://data/missions.json", FileAccess.READ)
 	if not file:
 		push_warning("missions.json missing")
 		return
-	var parsed = JSON.parse_string(file.get_as_text())
+	var parsed: Variant = JSON.parse_string(file.get_as_text())
 	if parsed is Dictionary:
-		missions = parsed
-		mission_sequence = missions.keys()
+		missions = parsed as Dictionary
+		mission_sequence.clear()
+		for key in missions.keys():
+			mission_sequence.append(String(key))
 		mission_sequence.sort()
 
 func unlock_mission(id: String) -> void:

@@ -1,0 +1,7 @@
+res://scripts/vehicles/vehicle.gd
+res://scripts/world/city_map.gd
+res://scripts/world/world_root.gd
+res://scripts/npcs/civilian_npc.gd
+res://scripts/systems/game_state.gd
+res://scripts/vehicles/police_vehicle.gd
+res://scripts/player/player.gd

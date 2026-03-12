@@ -52,3 +52,13 @@ offset_top = 520.0
 offset_right = 1260.0
 offset_bottom = 700.0
 script = ExtResource("2")
+
+[node name="HotwireBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = 460.0
+offset_top = 650.0
+offset_right = 820.0
+offset_bottom = 676.0
+min_value = 0.0
+max_value = 100.0
+value = 0.0

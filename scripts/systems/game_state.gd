@@ -5,6 +5,7 @@ signal cash_changed(value: int)
 signal inventory_changed()
 signal notification(text: String)
 signal day_advanced(day: int)
+signal hotwire_progress(active: bool, progress: float)
 
 const MAX_METER := 100
 const MIN_METER := 0
@@ -103,6 +104,9 @@ func confiscate_all_items() -> void:
 func notify(text: String) -> void:
 	emit_signal("notification", text)
 
+func set_hotwire_progress(active: bool, progress: float) -> void:
+	hotwire_progress.emit(active, clampf(progress, 0.0, 1.0))
+
 func as_save_data() -> Dictionary:
 	return {
 		"civility_index": civility_index,
@@ -119,9 +123,9 @@ func as_save_data() -> Dictionary:
 func load_from_data(data: Dictionary) -> void:
 	civility_index = int(data.get("civility_index", 0))
 	cash = int(data.get("cash", 50))
-	inventory = data.get("inventory", [])
-	home_storage = data.get("home_storage", [])
-	safehouse_storage = data.get("safehouse_storage", [])
+	inventory = _dict_array_from_variant(data.get("inventory", []))
+	home_storage = _dict_array_from_variant(data.get("home_storage", []))
+	safehouse_storage = _dict_array_from_variant(data.get("safehouse_storage", []))
 	mission_progress = data.get("mission_progress", {})
 	world_time_minutes = int(data.get("world_time_minutes", 8 * 60))
 	world_day = int(data.get("world_day", 1))
@@ -131,3 +135,11 @@ func load_from_data(data: Dictionary) -> void:
 	emit_signal("meter_changed", civility_index, get_tier())
 	emit_signal("cash_changed", cash)
 	emit_signal("inventory_changed")
+
+func _dict_array_from_variant(value: Variant) -> Array[Dictionary]:
+	var out: Array[Dictionary] = []
+	if value is Array:
+		for item in value:
+			if item is Dictionary:
+				out.append(item)
+	return out
